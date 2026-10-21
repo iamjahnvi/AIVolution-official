@@ -34,10 +34,10 @@ const monthLabels = Array.from({ length: WEEKS }, (_, w) => {
 const fmt = (d) => `${MONTHS[d.getMonth()]} ${d.getFullYear()}`;
 
 const Heatmap = () => (
-  <div className="heat border-2 border-ink bg-cream p-4 md:p-5 shadow-[6px_6px_0_var(--ink)] overflow-x-auto">
+  <div className="heat border-2 border-border bg-bg-surface p-4 md:p-5 shadow-[6px_6px_0_var(--border)] overflow-x-auto">
     <div className="flex items-baseline justify-between gap-4 mb-3">
       <p className="font-bricolage font-extrabold text-lg">{EVENTS_DESC.length} events · {fmt(first)} → {fmt(last)}</p>
-      <p className="font-mono text-[0.65rem] text-pencil hidden sm:block">less <span className="inline-block w-2.5 h-2.5 bg-ink/10 align-middle mx-0.5" /><span className="inline-block w-2.5 h-2.5 bg-marker align-middle mx-0.5" /> more</p>
+      <p className="font-mono text-[0.65rem] text-secondary hidden sm:block">less <span className="inline-block w-2.5 h-2.5 bg-border/10 align-middle mx-0.5" /><span className="inline-block w-2.5 h-2.5 bg-marker align-middle mx-0.5" /> more</p>
     </div>
     <div className="grid gap-[3px]" style={{ gridTemplateColumns: `repeat(${WEEKS}, 11px)`, gridTemplateRows: 'auto repeat(7, 11px)' }}>
       {monthLabels.map((m, w) => <span key={`m${w}`} className="font-mono text-[9px] text-pencil leading-none h-3">{m}</span>)}
@@ -78,22 +78,22 @@ export const Events = () => {
   );
 
   return (
-    <section id="events" ref={root} className="cell relative bg-paper dotgrid">
+    <section id="events" ref={root} className="cell relative bg-bg-surface dotgrid">
       <div className="relative z-[2] max-w-7xl mx-auto px-5 sm:px-8 md:px-12 pt-20 md:pt-28 pb-24">
         <div className="reveal flex flex-wrap items-end justify-between gap-6">
           <div>
             <SectionLabel path="events/" />
-            <h2 className="mt-4 text-[clamp(2.6rem,6vw,6rem)]">commit history.</h2>
-            <p className="mt-4 max-w-xl text-lg text-pencil">Every event we've run, newest first. Click any commit for the full report and photos.</p>
+            <h2 className="mt-4 text-[clamp(2.6rem,6vw,6rm)]">commit history.</h2>
+            <p className="mt-4 max-w-xl text-lg text-secondary">Every event we've run, newest first. Click any commit for the full report and photos.</p>
           </div>
-          <Link to="/events" className="btn-sticker" style={{ '--bg': '#fff' }}>all event reports →</Link>
+          <Link to="/events" className="btn-sticker" style={{ '--bg': 'var(--bg-surface)' }}>all event reports →</Link>
         </div>
 
         <div className="reveal mt-10" style={{ '--reveal-i': 1 }}><Heatmap /></div>
 
         {/* git graph */}
         <div className="git-log relative mt-16 md:mt-24">
-          <div className="git-line absolute left-5 md:left-1/2 top-0 bottom-0 w-1 md:-ml-0.5 bg-ink" aria-hidden="true" />
+          <div className="git-line absolute left-5 md:left-1/2 top-0 bottom-0 w-1 md:-ml-0.5 bg-border" aria-hidden="true" />
           <ol className="space-y-14 md:space-y-20">
             {EVENTS_DESC.map((e, i) => {
               const [label, color] = typeOf(e);
@@ -102,7 +102,7 @@ export const Events = () => {
                 <li key={e.id} data-side={right ? 'r' : 'l'} className={`commit relative md:grid md:grid-cols-2 md:gap-16 items-center ${right ? '' : 'md:[direction:rtl]'}`}>
                   <span className="commit-node absolute left-5 md:left-1/2 top-8 md:top-1/2 -translate-x-1/2 md:-translate-y-1/2 w-6 h-6 rounded-full border-[3px] border-ink z-[2]" style={{ background: color }} aria-hidden="true" />
                   <div className="md:[direction:ltr] pl-14 md:pl-0">
-                    <Link to={`/events?e=${e.id}`} className="commit-card group block border-2 border-ink bg-cream p-5 md:p-7 shadow-[6px_6px_0_var(--ink)] transition-transform duration-200 hover:-translate-y-1">
+                    <Link to={`/events?e=${e.id}`} className="commit-card group block border-2 border-border bg-bg-surface p-5 md:p-7 shadow-[6px_6px_0_var(--border)] transition-transform duration-200 hover:-translate-y-1">
                       <div className="flex flex-wrap items-center gap-x-3 gap-y-2 font-mono text-xs">
                         <span className="text-marker font-bold">{shortHash(e.id)}</span>
                         <span className="text-pencil">{e.date}</span>
@@ -112,7 +112,7 @@ export const Events = () => {
                       <h3 className="mt-3 text-2xl md:text-[2rem] leading-[0.95] group-hover:underline decoration-marker decoration-4 underline-offset-4">{e.title}</h3>
                       <p className="mt-3 text-pencil leading-relaxed">{e.summary}</p>
                       <ul className="mt-4 flex flex-wrap gap-2">
-                        {e.facts.slice(0, 4).map((f) => <li key={f} className="font-mono text-[0.65rem] px-2 py-1 border border-ink/30 bg-paper">{f}</li>)}
+                        {e.facts.slice(0, 4).map((f) => <li key={f} className="font-mono text-[0.65rem] px-2 py-1 border border-border/30 bg-bg-surface">{f}</li>)}
                       </ul>
                     </Link>
                   </div>
@@ -124,8 +124,8 @@ export const Events = () => {
             })}
           </ol>
           <div className="relative mt-14 pl-14 md:pl-0 md:text-center">
-            <span className="absolute left-5 md:left-1/2 top-1 -translate-x-1/2 w-4 h-4 rounded-full border-[3px] border-ink bg-paper" aria-hidden="true" />
-            <Hand className="text-2xl text-pencil" rotate={-2}>initial commit — Orientation, Sep 2024</Hand>
+            <span className="absolute left-5 md:left-1/2 top-1 -translate-x-1/2 w-4 h-4 rounded-full border-[3px] border-border bg-bg-surface" aria-hidden="true" />
+            <Hand className="text-2xl text-secondary" rotate={-2}>initial commit — Orientation, Sep 2024</Hand>
           </div>
         </div>
       </div>

@@ -38,7 +38,7 @@ export const ResearchPage = () => {
   );
 
   return (
-    <main ref={root} className="nb min-h-screen bg-paper dotgrid overflow-hidden">
+    <main ref={root} className="nb min-h-screen bg-bg-surface dotgrid overflow-hidden">
       <div className="relative z-[2] max-w-7xl mx-auto px-5 sm:px-8 md:px-12 pt-28 md:pt-36 pb-24">
         <div className="reveal">
           <SectionLabel path="research/" />
@@ -51,14 +51,14 @@ export const ResearchPage = () => {
 
         <div className="mt-12 grid lg:grid-cols-2 gap-10 items-start">
           {/* terminal */}
-          <div className="reveal screen grain grain--light border-2 border-ink shadow-[8px_8px_0_var(--ink)] font-mono text-sm md:text-base" style={{ '--reveal-i': 1 }}>
-            <div className="relative z-[2] flex items-center gap-2 px-4 py-2.5 border-b border-white/10 bg-[#141414]">
+          <div className="reveal screen grain grain--light border-2 border-border shadow-[8px_8px_0_var(--border)] font-mono text-sm md:text-base" style={{ '--reveal-i': 1 }}>
+            <div className="relative z-[2] flex items-center gap-2 px-4 py-2.5 border-b border-border/10 bg-[#141414]">
               <i className="w-3 h-3 rounded-full bg-redpen" /><i className="w-3 h-3 rounded-full bg-highlight" /><i className="w-3 h-3 rounded-full bg-mint" />
               <span className="ml-3 text-xs text-[#d7f5e3]/60">zsh — aivolutions/research</span>
             </div>
             <div className="relative z-[2] p-5 md:p-6 leading-8 min-h-[14rem]">
               {LINES.map(([, kind], i) => (
-                <p key={i} className={`term-line min-h-[2rem] ${kind === 'cmd' ? 'text-mint' : kind === 'dim' ? 'text-[#d7f5e3]/55' : 'text-[#d7f5e3]'}`} />
+                <p key={i} className={`term-line min-h-[2rem] ${kind === 'cmd' ? 'text-mint' : kind === 'dim' ? 'text-fg-secondary/55' : 'text-fg-secondary}'}` />
               ))}
               <p className="caret text-mint" />
             </div>
@@ -66,7 +66,7 @@ export const ResearchPage = () => {
 
           {/* the draft being written */}
           <div className="reveal relative" style={{ '--reveal-i': 2 }}>
-            <div className="paper-ruled border-2 border-ink shadow-[8px_8px_0_var(--ink)] p-8 pl-16 pt-10 relative" style={{ transform: 'rotate(-1.2deg)' }}>
+            <div className="paper-ruled border-2 border-border shadow-[8px_8px_0_var(--border)] p-8 pl-16 pt-10 relative" style={{ transform: 'rotate(-1.2deg)' }}>
               <p className="font-mono text-[0.65rem] tracking-[0.2em] uppercase text-pencil mb-4">research/draft-01.md</p>
               <svg viewBox="0 0 320 232" className="w-full max-w-[320px]" fill="none" strokeWidth="3" strokeLinecap="round" aria-hidden="true">
                 {DRAFT_LINES.map((w, i) => (

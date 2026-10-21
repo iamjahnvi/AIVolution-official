@@ -72,7 +72,7 @@ export const Join = () => {
   );
 
   return (
-    <section id="join" ref={root} className="cell relative bg-paper overflow-hidden">
+    <section id="join" ref={root} className="cell relative bg-bg-surface overflow-hidden">
       <div className="relative z-[2] max-w-7xl mx-auto px-5 sm:px-8 md:px-12 pt-20 md:pt-28 pb-24">
         <div className="reveal flex flex-wrap items-end justify-between gap-6">
           <div>
@@ -87,7 +87,7 @@ export const Join = () => {
           <div className="space-y-8">
             {/* terminal */}
             <div className="term reveal screen grain grain--light border-2 border-ink shadow-[8px_8px_0_var(--ink)] font-mono text-sm md:text-base" style={{ '--reveal-i': 1 }}>
-              <div className="relative z-[2] flex items-center gap-2 px-4 py-2.5 border-b border-white/10 bg-[#141414]">
+              <div className="relative z-[2] flex items-center gap-2 px-4 py-2.5 border-b border-border/10 bg-[#141414]">
                 <i className="w-3 h-3 rounded-full bg-redpen" /><i className="w-3 h-3 rounded-full bg-highlight" /><i className="w-3 h-3 rounded-full bg-mint" />
                 <span className="ml-3 text-xs text-[#d7f5e3]/60">zsh — aivolutions</span>
               </div>
@@ -120,7 +120,7 @@ export const Join = () => {
               {STEPS.map((s, i) => (
                 <li key={s.n} className="relative">
                   <span className="step-dot absolute -left-10 sm:-left-12 top-7 w-6 h-6 rounded-full border-[3px] border-ink" style={{ background: s.bg, transform: 'translateX(-9px)' }} aria-hidden="true" />
-                  <div className="step group flex flex-col sm:flex-row sm:items-center gap-5 border-2 border-ink bg-cream p-5 md:p-6 shadow-[6px_6px_0_var(--ink)] transition-transform duration-200 hover:-translate-y-1 hover:rotate-0" style={{ transform: `rotate(${i % 2 ? 0.6 : -0.6}deg)` }}>
+                  <div className="step group flex flex-col sm:flex-row sm:items-center gap-5 border-2 border-border bg-bg-surface p-5 md:p-6 shadow-[6px_6px_0_var(--border)] transition-transform duration-200 hover:-translate-y-1 hover:rotate-0" style={{ transform: `rotate(${i % 2 ? 0.6 : -0.6}deg)` }}>
                     <span className="relative font-bricolage font-extrabold text-5xl leading-none select-none w-16 shrink-0 text-ink/15 transition-colors duration-300 group-hover:text-ink">
                       {s.n}
                     </span>

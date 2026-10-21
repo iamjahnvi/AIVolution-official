@@ -30,7 +30,7 @@ export const Lightbox = ({ images, index, title, onClose, onIndex }) => {
   );
 
   return createPortal(
-    <div ref={root} className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-10" style={{ background: 'rgba(20, 20, 20, 0.93)' }} onClick={onClose} role="dialog" aria-modal="true" aria-label={`${title} photos`}>
+    <div ref={root} className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-10" style={{ background: 'rgba(13,13,13,0.93)' }} onClick={onClose} role="dialog" aria-modal="true" aria-label={`${title} photos`}>
       <button type="button" onClick={onClose} className="absolute top-4 right-4 md:top-6 md:right-6 btn-sticker !py-2 !px-4 text-sm" style={{ '--bg': '#fff' }} aria-label="Close">esc ✕</button>
       {n > 1 && (
         <>
@@ -39,9 +39,9 @@ export const Lightbox = ({ images, index, title, onClose, onIndex }) => {
         </>
       )}
       <figure className="lb-img max-w-full" onClick={(e) => e.stopPropagation()}>
-        <div className="polaroid !p-3 !pb-3 bg-paper" style={{ '--r': '0deg' }}>
+        <div className="polaroid !p-3 !pb-3 bg-bg-surface" style={{ '--r': '0deg' }}>
           <img key={index} src={images[index]} alt={`${title} ${index + 1}`} className="!aspect-auto max-h-[78vh] max-w-[92vw] w-auto h-auto object-contain" />
-          <figcaption className="flex items-center justify-between mt-3 font-mono text-xs text-ink">
+          <figcaption className="flex items-center justify-between mt-3 font-mono text-xs text-fg-primary">
             <span className="font-hand text-xl">{title}</span>
             <span>{String(index + 1).padStart(2, '0')} / {String(n).padStart(2, '0')}</span>
           </figcaption>

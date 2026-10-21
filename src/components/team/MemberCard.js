@@ -60,7 +60,7 @@ export const MemberCard = ({ m, big = false }) => {
         style={{ '--tone': tone, transformStyle: 'preserve-3d' }}
       >
         {/* front */}
-        <div className="tcard-face absolute inset-0 overflow-hidden border-[3px] border-ink bg-cream shadow-[6px_6px_0_var(--ink)]">
+        <div className="tcard-face absolute inset-0 overflow-hidden border-[3px] border-border bg-bg-surface shadow-[6px_6px_0_var(--border)]">
           <div className="h-3 border-b-[3px] border-ink" style={{ background: tone }} />
           <div className="relative h-[calc(100%-0.75rem)] overflow-hidden">
             <img src={m.img} alt={m.name} loading="lazy" decoding="async" className="tcard-img w-full h-full object-cover object-top scale-[1.12]" />

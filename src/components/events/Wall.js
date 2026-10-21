@@ -28,8 +28,8 @@ export const Wall = ({ event, images, onOpen }) => {
   );
 
   return (
-    <div ref={root} className="wall relative cork border-[3px] border-ink shadow-[10px_10px_0_var(--ink)] p-5 sm:p-8 md:p-12 overflow-hidden">
-      <Hand className="absolute right-6 top-3 text-xl text-ink/70 hidden lg:block" rotate={-3}>drag the prints · click to open</Hand>
+    <div ref={root} className="wall relative cork border-[3px] border-border shadow-[10px_10px_0_var(--border)] p-5 sm:p-8 md:p-12 overflow-hidden" style={{ background: 'var(--bg-surface)' }}>
+      <Hand className="absolute right-6 top-3 text-xl text-fg-secondary/70 hidden lg:block" rotate={-3}>drag the prints · click to open</Hand>
       <ul className={`grid gap-8 md:gap-12 ${single ? 'max-w-3xl mx-auto' : 'md:grid-cols-2'}`}>
         {images.map((src, i) => {
           const isPoster = /poster/i.test(src);
@@ -43,10 +43,10 @@ export const Wall = ({ event, images, onOpen }) => {
                 style={{ '--r': `${TILT[i % TILT.length]}deg` }}
                 aria-label={`Open photo ${i + 1}`}
               >
-                <img src={src} alt={`${event.title} ${i + 1}`} loading="lazy" decoding="async" className={isPoster ? '!aspect-[1.41/1] !object-contain bg-paper' : '!aspect-[4/3]'} />
+                <img src={src} alt={`${event.title} ${i + 1}`} loading="lazy" decoding="async" className={isPoster ? '!aspect-[1.41/1] !object-contain bg-bg-surface' : '!aspect-[4/3]'} />
                 <figcaption className="polaroid__caption flex items-end justify-between gap-4 !mt-4 !text-2xl">
                   <span>{isPoster ? 'the poster' : i === 0 ? event.title : `frame ${String(i + 1).padStart(2, '0')}`}</span>
-                  <span className="font-mono text-[0.65rem] text-pencil tracking-widest shrink-0">{event.date} · {String(i + 1).padStart(2, '0')}/{String(images.length).padStart(2, '0')}</span>
+                  <span className="font-mono text-[0.65rem] text-secondary tracking-widest shrink-0">{event.date} · {String(i + 1).padStart(2, '0')}/{String(images.length).padStart(2, '0')}</span>
                 </figcaption>
               </button>
             </li>

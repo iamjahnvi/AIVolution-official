@@ -1,17 +1,17 @@
-/* Cutout Visual Design System — Events Page */
+/* Cutout Visual Design System — Events Page (Dark) */
 :root {
-  --cut-desk: #E7DFCE;
-  --cut-desk-edge: #D3C8B1;
-  --cut-mat: #2C4E3E;
-  --cut-mat-mottle: #356049;
-  --cut-mat-grid: rgba(233, 240, 216, 0.15);
-  --cut-mat-grid-bold: rgba(238, 244, 222, 0.32);
-  --cut-mat-wear: rgba(232, 240, 222, 0.11);
-  --cut-mat-label: rgba(244, 249, 236, 0.92);
-  --cut-sheet: #F6F1E6;
-  --cut-sheet-ink: #241F19;
-  --cut-shadow: rgba(38, 30, 20, 0.34);
-  --cut-stain: rgba(96, 64, 30, 0.3);
+  --cut-desk: #1a1a1e;
+  --cut-desk-edge: #2a2a2e;
+  --cut-mat: #1e3a2f;
+  --cut-mat-mottle: #2a4a3a;
+  --cut-mat-grid: rgba(255, 255, 255, 0.03);
+  --cut-mat-grid-bold: rgba(255, 255, 255, 0.08);
+  --cut-mat-wear: rgba(255, 255, 255, 0.05);
+  --cut-mat-label: rgba(160, 160, 160, 0.85);
+  --cut-sheet: #1e1e22;
+  --cut-sheet-ink: #a0a0a0;
+  --cut-shadow: rgba(255, 255, 255, 0.03);
+  --cut-stain: rgba(255, 255, 255, 0.05);
 }
 
 .cut-root {
@@ -142,7 +142,7 @@
 
 .cut-strip:hover .cut-strip-badge {
   transform: translateY(-2px);
-  box-shadow: 4px 10px 0 rgba(20, 16, 10, 0.38);
+  box-shadow: 4px 10px 0 rgba(255, 255, 255, 0.08);
 }
 
 .cut-strip-note {

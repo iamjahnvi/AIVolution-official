@@ -22,7 +22,16 @@ function buildCutoutCategories() {
     };
   };
 
-  // 1. Workshops (From Prompt to Production, Metaverse Game Dev)
+  // Category colors adapted for dark theme (badge paper = darkened category color, ink = contrasting text)
+const CATEGORY_PAPER_INK = {
+  competitions: { paper: '#b91c1c', ink: '#FF3B00' },   // dark red background, orange text
+  workshops: { paper: '#9a8820', ink: '#FF3B00' },     // dark orange background, orange text
+  webinars: { paper: '#2e7d32', ink: '#FF3B00' },      // dark green background, orange text
+  'industrial-visit': { paper: '#7c3a0c', ink: '#FF3B00' }, // dark brown background, orange text
+  miscellaneous: { paper: '#1e1e22', ink: '#a0a0a0' },  // dark surface, secondary text
+};
+
+// 1. Workshops (From Prompt to Production, Metaverse Game Dev)
   const workshopEvents = EVENTS.filter((e) => e.type === 'workshop').map((e) => getEventData(e, 'Workshops'));
 
   // 2. Competitions (Codex Hackathon 2025, The Coding Triathlon, Algosphere)
@@ -63,13 +72,16 @@ function buildCutoutCategories() {
     },
   ];
 
+  const getCategoryColors = (categoryName) => {
+    return CATEGORY_PAPER_INK[categoryName] || CATEGORY_PAPER_INK.miscellaneous;
+  };
+
   return [
     {
       id: 'competitions',
       word: 'COMPETITIONS',
       note: 'HACKATHONS & CODE SHOWDOWNS',
-      paper: '#DE3B22',
-      ink: '#FFF3E4',
+      ...getCategoryColors('competitions'),
       pencil: '#FFE66B',
       rot: 3.2,
       desktopPos: { top: '15%', left: '55%' },
@@ -82,8 +94,7 @@ function buildCutoutCategories() {
       id: 'workshops',
       word: 'WORKSHOPS',
       note: 'HANDS-ON LABS & EXPERT TALKS',
-      paper: '#EFB61F',
-      ink: '#241C10',
+      ...getCategoryColors('workshops'),
       pencil: '#CC3A22',
       rot: -2.4,
       desktopPos: { top: '44%', left: '10%' },
@@ -96,8 +107,7 @@ function buildCutoutCategories() {
       id: 'webinars',
       word: 'WEBINARS',
       note: 'TECH TALKS & CAREER ROADMAPS',
-      paper: '#3AE88A',
-      ink: '#14281E',
+      ...getCategoryColors('webinars'),
       pencil: '#FFE66B',
       rot: -1.8,
       desktopPos: { top: '44%', left: '58%' },
@@ -110,8 +120,7 @@ function buildCutoutCategories() {
       id: 'industrial-visit',
       word: 'INDUSTRIAL VISIT',
       note: 'INDUSTRY CAMPUS & REAL DEPLOYMENT',
-      paper: '#EFE3D2',
-      ink: '#33291F',
+      ...getCategoryColors('industrial-visit'),
       pencil: '#B4795A',
       rot: 2.6,
       desktopPos: { top: '63%', left: '28%' },
@@ -124,8 +133,7 @@ function buildCutoutCategories() {
       id: 'miscellaneous',
       word: 'MISCELLANEOUS',
       note: 'ORIENTATION, EXAM PREP & LIFE',
-      paper: '#191715',
-      ink: '#F4F1E8',
+      ...getCategoryColors('miscellaneous'),
       pencil: '#FF5B39',
       rot: -3.0,
       desktopPos: { top: '81%', left: '22%' },
@@ -928,7 +936,7 @@ export const CutoutEventsGallery = () => {
 
             {/* EVENT DOSSIER STORY & SECTIONS */}
             <div className="cut-modal-story">
-              <div className="cut-modal-section-card bg-[#FFFFFF]/70">
+              <div className="cut-modal-section-card bg-bg-surface/70">
                 <div className="cut-modal-sec-head">Overview & Synopsis</div>
                 <p className="cut-modal-sec-body text-sm leading-relaxed">
                   {modalEvent.summary}
@@ -966,7 +974,7 @@ export const CutoutEventsGallery = () => {
         <svg viewBox="0 0 64 84" width="100%" height="100%" fill="none">
           <defs>
             <linearGradient id="cut-cur-grad" x1="0" y1="0" x2="0.6" y2="1">
-              <stop offset="0" stopColor="#FFFFFF" />
+              <stop offset="0" stopColor="#141414" />
               <stop offset="1" stopColor="#D8D4CC" />
             </linearGradient>
           </defs>

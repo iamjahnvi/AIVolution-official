@@ -11,15 +11,15 @@ import { typeOf } from './eventType';
 const leadOf = (e) => (e.gallery || []).find((g) => !/poster/i.test(g)) || e.imgUrl;
 const isPoster = (src) => /poster/i.test(src);
 
-// Card papers cycle through the notebook palette.
+// Card tones adapted for dark theme - brand accents on dark surfaces.
 const CARD_TONES = [
-  { bg: 'var(--cream)', fg: 'var(--ink)', accent: 'var(--highlight)', stamp: 'var(--redpen)', tape: '' },
-  { bg: '#ffe85c', fg: 'var(--ink)', accent: '#fff', stamp: 'var(--pen)', tape: 'blue' },
-  { bg: '#3ae88a', fg: 'var(--ink)', accent: '#fff', stamp: 'var(--redpen)', tape: 'pink' },
-  { bg: '#9bd7ff', fg: 'var(--ink)', accent: '#fff', stamp: 'var(--redpen)', tape: 'pink' },
-  { bg: '#ff8fb1', fg: 'var(--ink)', accent: '#fff', stamp: 'var(--pen)', tape: 'blue' },
+  { bg: 'var(--bg-elevated)', fg: 'var(--fg-primary)', accent: 'var(--accent)', stamp: 'var(--accent-muted)', tape: '' },
+  { bg: 'var(--accent)', fg: '#0d0d0d', accent: '#fff', stamp: 'var(--accent-secondary)', tape: 'blue' },
+  { bg: 'var(--accent-secondary)', fg: '#fff', accent: '#fff', stamp: 'var(--accent-muted)', tape: 'pink' },
+  { bg: 'var(--fg-muted)', fg: 'var(--fg-primary)', accent: 'var(--accent)', stamp: 'var(--redpen)', tape: 'pink' },
+  { bg: 'var(--accent-muted)', fg: 'var(--fg-primary)', accent: '#fff', stamp: 'var(--pen)', tape: 'blue' },
 ];
-const CHIP_TONES = ['#ffe85c', '#9bd7ff', '#ff8fb1', '#3ae88a', '#fff', '#ffb86b'];
+const CHIP_TONES = ['var(--accent)', 'var(--accent-secondary)', 'var(--accent)', 'var(--accent-muted)', 'var(--bg-surface)', 'var(--accent)'];
 
 // Split prose into sentences (keeps abbreviations like "Mr." together well enough for our copy).
 const sentences = (text) => text.split(/(?<=[.!?])\s+(?=[A-Z"])/).filter(Boolean);
@@ -77,7 +77,7 @@ const PhotoPage = ({ page, event, total, onOpen, i }) => {
     return (
       <div className="relative w-full lg:w-[560px] p-6">
         <span className="pushpin absolute top-3 left-5" /><span className="pushpin absolute top-3 right-5" />
-        <button type="button" onClick={() => onOpen(page.shots[0].n)} className="block w-full border-[3px] border-ink bg-paper shadow-[8px_8px_0_var(--ink)] hover:-translate-y-1 transition-transform" style={{ transform: 'rotate(-1.5deg)' }} aria-label="Open the poster">
+        <button type="button" onClick={() => onOpen(page.shots[0].n)} className="block w-full border-[3px] border-border bg-bg-surface shadow-[8px_8px_0_var(--border)] hover:-translate-y-1 transition-transform" style={{ transform: 'rotate(-1.5deg)' }} aria-label="Open the poster">
           <img src={page.shots[0].src} alt={`${event.title} poster`} loading="lazy" decoding="async" className="w-full h-auto" />
         </button>
         <Tape rotate={3} className="absolute -bottom-2 right-10 !px-6">the poster</Tape>
@@ -192,20 +192,20 @@ export const Report = ({ event, onSelect }) => {
   return (
     <article ref={root} id="report" className="scroll-mt-24">
       {/* hero */}
-      <div className="rep-hero relative h-[72vh] min-h-[460px] overflow-hidden border-[3px] border-ink shadow-[10px_10px_0_var(--ink)] bg-ink">
+      <div className="rep-hero relative h-[72vh] min-h-[460px] overflow-hidden border-[3px] border-border shadow-[10px_10px_0_var(--border)] bg-bg-surface">
         <img key={event.id} src={leadOf(event)} alt="" className="rep-hero-img absolute inset-0 w-full h-[118%] -top-[9%] object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/35 to-transparent" aria-hidden="true" />
+        <div className="absolute inset-0 bg-gradient-to-t from-bg-surface via-bg-surface/35 to-transparent" aria-hidden="true" />
         <span className="rep-n absolute top-5 right-6 font-bricolage font-extrabold leading-none text-[clamp(4rem,14vw,12rem)] text-transparent select-none" style={{ WebkitTextStroke: '2px rgba(243,238,226,0.55)' }} aria-hidden="true">
           {String(EVENTS_DESC.length - idx).padStart(2, '0')}
         </span>
         <div className="absolute inset-x-0 bottom-0 p-6 md:p-10 flex flex-col gap-5">
           <div className="rep-meta flex flex-wrap items-center gap-3">
-            <span className="px-2.5 py-1 font-mono text-[0.65rem] font-bold uppercase tracking-[0.2em] text-ink border-2 border-ink" style={{ background: color }}>{label}</span>
-            <span className="font-mono text-sm text-paper/80">{event.date}</span>
-            <span className="font-mono text-xs text-paper/50">{shortHash(event.id)}</span>
-            {idx === 0 && <span className="px-2 py-0.5 text-[0.62rem] font-mono font-bold border border-paper/60 text-paper">HEAD → main</span>}
+            <span className="px-2.5 py-1 font-mono text-[0.65rem] font-bold uppercase tracking-[0.2em] text-fg-primary border-2 border-border" style={{ background: color }}>{label}</span>
+            <span className="font-mono text-sm text-fg-secondary/80">{event.date}</span>
+            <span className="font-mono text-xs text-fg-secondary/50">{shortHash(event.id)}</span>
+            {idx === 0 && <span className="px-2 py-0.5 text-[0.62rem] font-mono font-bold border border-border/60 text-fg-primary">HEAD → main</span>}
           </div>
-          <h1 className="text-paper text-[clamp(2.4rem,7vw,7.5rem)] max-w-[16ch] leading-[0.92]">
+          <h1 className="text-fg-primary text-[clamp(2.4rem,7vw,7.5rem)] max-w-[16ch] leading-[0.92]">
             {words.map((w, i) => <span key={i} className="rep-word mask-line !inline-block mr-[0.22em] align-top"><span>{w}</span></span>)}
           </h1>
           <div className="rep-meta flex flex-wrap gap-2">
@@ -222,16 +222,16 @@ export const Report = ({ event, onSelect }) => {
           <Mark on color={color === '#ff5a1f' ? 'var(--highlight)' : color}>{event.summary}</Mark>
         </p>
         <div className="flex flex-wrap items-center gap-3">
-          <button type="button" disabled={!prev} onClick={() => prev && onSelect(prev.id)} className="btn-sticker !py-2.5 !px-4 text-sm disabled:opacity-30" style={{ '--bg': '#fff' }}>← newer</button>
-          <button type="button" disabled={!next} onClick={() => next && onSelect(next.id)} className="btn-sticker !py-2.5 !px-4 text-sm disabled:opacity-30" style={{ '--bg': '#fff' }}>older →</button>
+          <button type="button" disabled={!prev} onClick={() => prev && onSelect(prev.id)} className="btn-sticker !py-2.5 !px-4 text-sm disabled:opacity-30" style={{ '--bg': 'var(--bg-surface)' }}>← newer</button>
+          <button type="button" disabled={!next} onClick={() => next && onSelect(next.id)} className="btn-sticker !py-2.5 !px-4 text-sm disabled:opacity-30" style={{ '--bg': 'var(--bg-surface)' }}>older →</button>
         </div>
       </div>
 
       {/* the spread: full-bleed; desktop pins and slides it sideways as you scroll down */}
-      <div ref={cardsWrap} className="rep-cards-wrap relative mt-14 w-screen ml-[calc(50%-50vw)] lg:h-[100svh] lg:flex lg:flex-col lg:justify-center overflow-hidden bg-paper">
+      <div ref={cardsWrap} className="rep-cards-wrap relative mt-14 w-screen ml-[calc(50%-50vw)] lg:h-[100svh] lg:flex lg:flex-col lg:justify-center overflow-hidden bg-bg-surface">
         <div className="flex items-center justify-between gap-4 mb-6 px-5 sm:px-8 md:px-12 lg:px-[6vw]">
-          <p className="font-mono text-xs tracking-[0.2em] uppercase text-pencil">the report · {event.sections.length} parts · {images.length} photos</p>
-          <Hand className="text-lg text-pencil hidden lg:block" rotate={-2}>keep scrolling ↓ the spread slides</Hand>
+          <p className="font-mono text-xs tracking-[0.2em] uppercase text-secondary">the report · {event.sections.length} parts · {images.length} photos</p>
+          <Hand className="text-lg text-secondary hidden lg:block" rotate={-2}>keep scrolling ↓ the spread slides</Hand>
         </div>
         <ul ref={cardsTrack} className="rep-cards flex flex-col lg:flex-row lg:items-center gap-8 lg:gap-12 lg:w-max px-5 sm:px-8 md:px-12 lg:px-[6vw] pb-8 pt-4">
           {pages.map((pg, i) => {
@@ -240,7 +240,7 @@ export const Report = ({ event, onSelect }) => {
             }
             const tone = CARD_TONES[pg.n % CARD_TONES.length];
             return (
-              <li key={pg.s.heading} className="rep-card relative shrink-0 w-full lg:w-[520px] border-[3px] border-ink shadow-[8px_8px_0_var(--ink)] p-7 lg:p-10 pb-12" style={{ background: tone.bg, color: tone.fg, transform: `rotate(${i % 2 ? 0.7 : -0.7}deg)` }}>
+              <li key={pg.s.heading} className="rep-card relative shrink-0 w-full lg:w-[520px] border-[3px] border-border shadow-[8px_8px_0_var(--border)] p-7 lg:p-10 pb-12" style={{ background: tone.bg, color: tone.fg, transform: `rotate(${i % 2 ? 0.7 : -0.7}deg)` }}>
                 <TextPage s={pg.s} n={pg.n} total={event.sections.length} fact={event.facts[pg.n]} tone={tone} dark={tone.bg === 'var(--screen)'} event={event} />
               </li>
             );
@@ -249,16 +249,16 @@ export const Report = ({ event, onSelect }) => {
             <PostIt rotate={3} tone="mint" className="text-2xl">end of report —<br />all photos below ↓</PostIt>
           </li>
         </ul>
-        <div className="hidden lg:block absolute left-0 right-0 bottom-0 h-1.5 bg-ink/10" aria-hidden="true">
-          <div className="rep-progress h-full bg-marker origin-left" />
+        <div className="hidden lg:block absolute left-0 right-0 bottom-0 h-1.5 bg-border/10" aria-hidden="true">
+          <div className="rep-progress h-full bg-accent origin-left" />
         </div>
       </div>
 
       {/* the wall */}
       <div className="mt-14">
         <div className="flex items-center justify-between gap-4 mb-4">
-          <p className="font-mono text-xs tracking-[0.2em] uppercase text-pencil">all photos · {images.length}</p>
-          <Hand className="text-lg text-pencil" rotate={-2}>pin them up however you like</Hand>
+          <p className="font-mono text-xs tracking-[0.2em] uppercase text-secondary">all photos · {images.length}</p>
+          <Hand className="text-lg text-secondary" rotate={-2}>pin them up however you like</Hand>
         </div>
         <Wall event={event} images={images} onOpen={setOpen} />
       </div>

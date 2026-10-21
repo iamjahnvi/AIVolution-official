@@ -17,23 +17,23 @@ const Badge = ({ d, i }) => (
     <p className="hidden lg:block font-mono text-[0.68rem] text-[#9bd7ff] -mt-3 mb-1 whitespace-nowrap">⎇ departments/{d.key}</p>
     {/* the whole hanging thing pivots from the rail */}
     <div className="badge origin-top flex flex-col items-center">
-      <div className="strap w-4 h-20 lg:h-28 bg-ink relative overflow-hidden">
-        <span className="absolute inset-0 font-mono text-[7px] leading-[9px] text-paper/70 tracking-widest [writing-mode:vertical-rl] px-[3px] select-none">AIVOLUTIONS · AIVOLUTIONS</span>
+      <div className="strap w-4 h-20 lg:h-28 bg-border relative overflow-hidden">
+        <span className="absolute inset-0 font-mono text-[7px] leading-[9px] text-bg-page/70 tracking-widest [writing-mode:vertical-rl] px-[3px] select-none">AIVOLUTIONS · AIVOLUTIONS</span>
       </div>
       <div className="w-10 h-5 bg-[#555] rounded-sm border-2 border-ink -mt-1 relative z-[1]" aria-hidden="true" />
-      <article
-        className="dept-card relative -mt-1 w-[86vw] max-w-[420px] lg:w-[400px] bg-cream text-ink border-2 border-ink shadow-[8px_8px_0_rgba(0,0,0,0.45)]"
+<article
+        className="dept-card relative -mt-1 w-[86vw] max-w-[420px] lg:w-[400px] bg-bg-surface text-fg-primary border-2 border-border shadow-[8px_8px_0_var(--border)]"
         style={{ transform: `rotate(${TILT[i]}deg)` }}
       >
-        <div className="h-3 bg-[var(--tone)] border-b-2 border-ink" />
+        <div className="h-3 bg-[var(--tone)] border-b-2 border-border" />
         <div className="mx-auto mt-3 w-7 h-7 rounded-full border-2 border-ink bg-[#1b3a7a]" aria-hidden="true" />
         <div className="px-7 pb-7 pt-4">
-          <p className="font-mono text-[0.65rem] tracking-[0.18em] uppercase text-pencil">{d.id} · staff</p>
+          <p className="font-mono text-[0.65rem] tracking-[0.18em] uppercase text-secondary">{d.id} · staff</p>
           <span className="absolute top-14 right-5 font-bricolage font-extrabold text-6xl text-ink/10 leading-none select-none" aria-hidden="true">0{i + 1}</span>
           <h3 className="mt-2 text-[2rem] leading-[0.95]">{d.title}</h3>
-          <p className="mt-4 text-[0.95rem] leading-relaxed text-pencil">{d.desc}</p>
+          <p className="mt-4 text-[0.95rem] leading-relaxed text-secondary">{d.desc}</p>
           <div className="mt-6 flex items-end justify-between gap-3">
-            <span className="font-mono text-xs text-pencil">departments/{d.key}/</span>
+            <span className="font-mono text-xs text-secondary">departments/{d.key}/</span>
             <Stamp rotate={-10} className="dept-stamp text-[0.6rem]">active</Stamp>
           </div>
         </div>
@@ -104,17 +104,17 @@ export const Departments = () => {
     <section id="departments" ref={root} className="cell blueprint relative overflow-hidden">
       <div className="lg:h-[100svh] relative">
         {/* the rail = main branch */}
-        <div className="hidden lg:flex absolute left-0 right-0 top-[9vh] h-3 bg-ink border-y-2 border-[#9bd7ff]/60 items-center z-[2]" aria-hidden="true">
+        <div className="hidden lg:flex absolute left-0 right-0 top-[9vh] h-3 bg-border border-y-2 border-[#9bd7ff]/60 items-center z-[2]" aria-hidden="true">
           <span className="ml-6 -mt-9 font-mono text-xs text-[#9bd7ff] bg-[#1b3a7a] px-2">⎇ main</span>
         </div>
 
         <div ref={track} className="flex flex-col lg:flex-row lg:items-start gap-12 lg:gap-[5vw] px-5 sm:px-8 md:px-12 lg:pl-[6vw] lg:pr-[10vw] py-20 lg:pt-[9vh] lg:pb-0 lg:w-max">
           <div className="reveal lg:w-[34vw] lg:shrink-0 lg:mt-[16vh]">
-            <SectionLabel path="departments/" className="[&>span:first-child]:text-[#9bd7ff] [&>span]:text-[#eaf0ff] text-[#eaf0ff]/70" />
+            <SectionLabel path="departments/" className="[&>span:first-child]:text-[#9bd7ff] [&>span]:text-fg-primary text-fg-primary/70" />
             <h2 className="mt-4 text-[clamp(2.6rem,6vw,6rem)] text-white">
               {DEPARTMENTS.length} departments,<br />one society.
             </h2>
-            <p className="mt-5 max-w-md text-lg text-[#eaf0ff]/75 leading-relaxed">
+            <p className="mt-5 max-w-md text-lg text-fg-secondary/75 leading-relaxed">
               Every event, post, partnership and line of code runs through one of these four. Grab the lanyard that fits you.
             </p>
             <Hand className="mt-6 text-2xl text-[#9bd7ff] hidden lg:block" rotate={-2}>scroll sideways — they swing →</Hand>
@@ -123,7 +123,7 @@ export const Departments = () => {
           {DEPARTMENTS.map((d, i) => <Badge key={d.key} d={d} i={i} />)}
 
           <div className="reveal lg:w-[30vw] lg:shrink-0 lg:mt-[16vh]">
-            <Hand className="block text-3xl md:text-4xl text-white" rotate={-2}>want in?</Hand>
+            <Hand className="block text-3xl md:text-4xl text-fg-primary" rotate={-2}>want in?</Hand>
             <p className="mt-3 text-[#eaf0ff]/75 text-lg max-w-sm">Connect with us on WhatsApp and follow along — events, announcements, all of it.</p>
             <StickerButton href={WHATSAPP} target="_blank" rel="noreferrer" bg="var(--highlight)" rotate={-2} className="mt-6">
               Connect on WhatsApp →

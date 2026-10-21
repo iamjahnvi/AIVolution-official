@@ -241,23 +241,23 @@ export const About = () => {
 
   let wordIndex = 0;
   return (
-    <section id="about" ref={root} className="cell relative bg-cream dotgrid">
+    <section id="about" ref={root} className="cell relative bg-bg-surface dotgrid">
       <div className="max-w-7xl mx-auto px-5 sm:px-8 md:px-12 pt-20 md:pt-28 pb-20 md:pb-28">
         <SectionLabel path="README.md" className="reveal" />
 
         {/* README as a code-editor window */}
-        <div className="reveal relative mt-5 border-2 border-ink bg-screen text-[#eaf0ff] shadow-[10px_10px_0_var(--ink)] grain grain--light" style={{ '--reveal-i': 1 }}>
+        <div className="reveal relative mt-5 border-2 border-border bg-bg-elevated text-fg-primary shadow-[10px_10px_0_var(--border)] grain grain--light" style={{ '--reveal-i': 1 }}>
           {/* tab bar */}
-          <div className="relative z-[2] flex items-stretch justify-between border-b border-white/10 bg-[#141414]">
-            <div className="flex items-stretch min-w-0 overflow-x-auto">
-              <span className="flex items-center gap-1.5 px-4 shrink-0" aria-hidden="true">
-                <i className="w-3 h-3 rounded-full bg-redpen" /><i className="w-3 h-3 rounded-full bg-highlight" /><i className="w-3 h-3 rounded-full bg-mint" />
-              </span>
-              {TABS.map(([name, href], i) => (
-                <a key={name} href={href} className={`flex items-center gap-2 px-4 py-2.5 font-mono text-xs whitespace-nowrap border-r border-white/10 ${i === 0 ? 'bg-screen text-[#eaf0ff] border-t-2 border-t-marker' : 'text-[#eaf0ff]/45 hover:text-[#eaf0ff] hover:bg-white/5'}`}>
-                  <span className={i === 0 ? 'text-marker' : 'text-[#eaf0ff]/30'}>{name.endsWith('/') ? '▸' : '●'}</span>{name}
-                </a>
-              ))}
+<div className="relative z-[2] flex items-stretch justify-between border-b border-border/10 bg-bg-nav">
+              <div className="flex items-stretch min-w-0 overflow-x-auto">
+                <span className="flex items-center gap-1.5 px-4 shrink-0" aria-hidden="true">
+                  <i className="w-3 h-3 rounded-full bg-redpen" /><i className="w-3 h-3 rounded-full bg-highlight" /><i className="w-3 h-3 rounded-full bg-mint" />
+                </span>
+                {TABS.map(([name, href], i) => (
+                  <a key={name} href={href} className={`flex items-center gap-2 px-4 py-2.5 font-mono text-xs whitespace-nowrap border-r border-border/10 ${i === 0 ? 'bg-bg-elevated text-fg-primary border-t-2 border-t-accent' : 'text-fg-secondary/45 hover:text-fg-primary hover:bg-bg-surface/5'}`}>
+                    <span className={i === 0 ? 'text-accent' : 'text-fg-secondary/30'}>{name.endsWith('/') ? '▸' : '●'}</span>{name}
+                  </a>
+                ))}
             </div>
             <div className="flex items-center gap-1 px-3 font-mono text-xs shrink-0" role="tablist" aria-label="README view">
               {['preview', 'raw'].map((m) => (
@@ -267,14 +267,14 @@ export const About = () => {
           </div>
 
           {/* badges */}
-          <div className="badges relative z-[2] flex flex-wrap gap-2 px-6 md:px-10 pt-6">
-            {BADGES.map(([label, value, color]) => (
-              <span key={label} className="badge inline-flex items-stretch font-mono text-[0.68rem] font-bold border-2 border-ink rounded overflow-hidden">
-                <span className="px-2 py-1 bg-[#2a2a2a] text-[#eaf0ff]/85">{label}</span>
-                <span className="px-2 py-1 text-ink" style={{ background: color }}>{typeof value === 'number' ? <span className="badge-n">{value}</span> : value}</span>
-              </span>
-            ))}
-          </div>
+<div className="badges relative z-[2] flex flex-wrap gap-2 px-6 md:px-10 pt-6">
+              {BADGES.map(([label, value, color]) => (
+                <span key={label} className="badge inline-flex items-stretch font-mono text-[0.68rem] font-bold border-2 border-border rounded overflow-hidden">
+                  <span className="px-2 py-1 bg-border text-fg-primary/85">{label}</span>
+                  <span className="px-2 py-1 text-fg-primary" style={{ background: color }}>{typeof value === 'number' ? <span className="badge-n">{value}</span> : value}</span>
+                </span>
+              ))}
+            </div>
 
           {/* body */}
           <div className="relative z-[2] py-6 md:py-8">
@@ -365,7 +365,7 @@ export const About = () => {
                       aria-selected={isActive}
                       onClick={() => setActive(i)}
                       onPointerEnter={() => setActive(i)}
-                      className={`folder-tab relative text-left border-[3px] border-b-0 border-ink rounded-t-2xl px-5 pt-4 transition-[padding,background] duration-300 ${isActive ? 'is-active pb-6 text-ink' : 'pb-3 bg-paper text-ink/70 hover:bg-cream'}`}
+                      className={`folder-tab relative text-left border-[3px] border-b-0 border-border rounded-t-2xl px-5 pt-4 transition-[padding,background] duration-300 ${isActive ? 'is-active pb-6 text-fg-primary' : 'pb-3 bg-bg-surface text-fg-secondary/70 hover:bg-bg-elevated'}`}
                       style={{ background: isActive ? FOLDERS[i].tone : undefined, zIndex: isActive ? 3 : 1 }}
                     >
                       <span className="flex items-center justify-between gap-3">
@@ -382,9 +382,9 @@ export const About = () => {
                 })}
               </div>
               <div className="folder-stack relative">
-                <div className="absolute inset-x-4 -bottom-3 h-full border-[3px] border-ink bg-paper rotate-[0.6deg]" aria-hidden="true" />
-                <div className="absolute inset-x-8 -bottom-6 h-full border-[3px] border-ink bg-cream rotate-[-0.6deg]" aria-hidden="true" />
-                <div key={active} className="folder-body relative border-[3px] border-ink shadow-[10px_10px_0_var(--ink)] p-8 lg:p-12 text-ink min-h-[520px]" style={{ background: FOLDERS[active].tone }}>
+                <div className="absolute inset-x-4 -bottom-3 h-full border-[3px] border-border bg-bg-surface rotate-[0.6deg]" aria-hidden="true" />
+                <div className="absolute inset-x-8 -bottom-6 h-full border-[3px] border-border bg-bg-elevated rotate-[-0.6deg]" aria-hidden="true" />
+                <div key={active} className="folder-body relative border-[3px] border-border shadow-[10px_10px_0_var(--border)] p-8 lg:p-12 text-fg-primary min-h-[520px]" style={{ background: FOLDERS[active].tone }}>
                   <FolderBody i={active} />
                 </div>
               </div>

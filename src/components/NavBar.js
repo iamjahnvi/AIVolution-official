@@ -3,20 +3,19 @@ import { HashLink } from "react-router-hash-link";
 import { useLocation } from "react-router-dom";
 import { useIsMobile } from "../hooks/useMediaQuery";
 
-// Colour tokens per variant. "paper" is the notebook homepage; "dark" everything else.
+// Colour tokens per theme variant.
 const THEMES = {
   dark: {
-    link: "text-white/60 hover:text-white",
-    linkActive: "text-white",
-    dot: "bg-white",
-    mobileLink: "text-white/70 hover:text-white hover:bg-white/5",
-    mobileLinkActive: "text-white bg-white/10",
-    burger: "text-white/80 hover:text-white",
-    icon: "text-white/60 hover:text-white",
-    cta: "bg-white text-black",
-    panel: "bg-[#0a0a0a] border-white/10 shadow-black/60",
-    divider: "bg-white/20",
-    small: "text-white/50 hover:text-white",
+    link: "text-white/60 hover:text-primary",
+    linkActive: "text-primary",
+    dot: "bg-primary",
+    mobileLink: "text-white/70 hover:text-primary hover:bg-primary/5",
+    mobileLinkActive: "text-primary bg-primary/10",
+    burger: "text-white/80 hover:text-primary",
+    icon: "text-white/60 hover:text-primary",
+    cta: "bg-primary text-bg-page",
+    divider: "bg-primary/20",
+    small: "text-white/50 hover:text-primary",
   },
   paper: {
     link: "text-ink/60 hover:text-ink",

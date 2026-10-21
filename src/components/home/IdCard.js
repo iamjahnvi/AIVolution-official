@@ -220,7 +220,7 @@ export const IdCard = ({ className = '' }) => {
         <path ref={stitch} fill="none" stroke="var(--paper)" strokeOpacity="0.55" strokeWidth="1.5" strokeDasharray="5 5" />
       </svg>
       {/* the clip the lanyard hangs from, on the tear line */}
-      <span className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 w-9 h-4 rounded-sm bg-[#555] border-2 border-ink z-[1]" aria-hidden="true" />
+      <span className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 w-9 h-4 rounded-sm bg-[#555] border-2 border-border z-[1]" aria-hidden="true" />
 
       <div
         ref={card}
@@ -229,18 +229,18 @@ export const IdCard = ({ className = '' }) => {
       >
         {/* metal ring through the slot */}
         <span className="absolute left-1/2 -top-3 -translate-x-1/2 w-6 h-8 rounded-full border-[3px] border-[#9a9a9a] z-[2]" aria-hidden="true" />
-        <div className="relative border-[3px] border-ink bg-[#0a0a0a] text-paper rounded-2xl shadow-[8px_8px_0_rgba(0,0,0,0.35)] px-5 pt-4 pb-5">
-          <div className="mx-auto w-14 h-3 rounded-full bg-paper border-2 border-ink" aria-hidden="true" />
-          <div className="mt-3 flex items-center justify-between font-mono text-[0.58rem] tracking-[0.2em] uppercase text-paper/55">
+        <div className="relative border-[3px] border-border bg-bg-surface text-fg-primary rounded-2xl shadow-[8px_8px_0_var(--border)] px-5 pt-4 pb-5">
+          <div className="mx-auto w-14 h-3 rounded-full bg-bg-surface border-2 border-border" aria-hidden="true" />
+          <div className="mt-3 flex items-center justify-between font-mono text-[0.58rem] tracking-[0.2em] uppercase text-fg-secondary/55">
             <span>member pass</span>
             <span className="text-[#9bd7ff]">⎇ main</span>
           </div>
-          <div className="mt-3 h-[150px] overflow-hidden rounded-lg border border-white/10 bg-black flex items-center justify-center">
+          <div className="mt-3 h-[150px] overflow-hidden rounded-lg border border-border/10 bg-bg-surface flex items-center justify-center">
             <img src="/main-logo-no-bg.png" alt="AIvolutions logo" width="1280" height="1061" loading="lazy" decoding="async" draggable={false} className="w-full h-full object-contain scale-[1.55]" />
           </div>
           <p className="mt-4 font-bricolage font-extrabold text-[2rem] leading-none tracking-[-0.03em]">AIvolutions</p>
-          <p className="mt-1.5 font-mono text-[0.62rem] tracking-[0.14em] uppercase text-paper/60">official AI society · MAIT</p>
-          <div className="mt-4 h-5 bg-[repeating-linear-gradient(90deg,var(--paper)_0_2px,transparent_2px_5px,var(--paper)_5px_6px,transparent_6px_9px)] opacity-50" aria-hidden="true" />
+          <p className="mt-1.5 font-mono text-[0.62rem] tracking-[0.14em] uppercase text-fg-secondary/60">official AI society · MAIT</p>
+          <div className="mt-4 h-5 bg-[repeating-linear-gradient(90deg,bg-bg-surface_0_2px,transparent_2px_5px,bg-bg-surface_5px_6px,transparent_6px_9px)] opacity-50" aria-hidden="true" />
 
           <div className="relative mt-5 flex justify-center">
             <button

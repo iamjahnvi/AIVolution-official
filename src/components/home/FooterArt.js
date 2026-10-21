@@ -29,8 +29,8 @@ const LANGS = Object.entries(counts)
   .map(([type, n]) => ({ type, n, pct: (n / EVENTS.length) * 100, color: TYPE_COLORS[type] || 'var(--pencil)' }));
 
 const Card = ({ title, tone, children, rotate }) => (
-  <div className="border-2 border-ink bg-cream shadow-[5px_5px_0_var(--ink)] transition-transform duration-200 hover:-translate-y-1" style={{ transform: `rotate(${rotate}deg)` }}>
-    <div className="px-4 py-1.5 border-b-2 border-ink font-mono text-[0.65rem] tracking-[0.2em] uppercase" style={{ background: tone }}>{title}</div>
+  <div className="border-2 border-border bg-bg-surface shadow-[5px_5px_0_var(--border)] transition-transform duration-200 hover:-translate-y-1" style={{ transform: `rotate(${rotate}deg)` }}>
+    <div className="px-4 py-1.5 border-b-2 border-border font-mono text-[0.65rem] tracking-[0.2em] uppercase" style={{ background: tone }}>{title}</div>
     <div className="px-4 py-4">{children}</div>
   </div>
 );
@@ -54,8 +54,8 @@ export const NavigateCard = () => {
 export const FindUsCard = () => (
   <Card title="find us" tone="var(--pink)" rotate={-0.5}>
     <p className="font-hand text-2xl leading-tight">Maharaja Agrasen Institute of Technology</p>
-    <p className="font-mono text-xs text-pencil mt-2">Sector 22, Rohini, Delhi — 110086</p>
-    <p className="font-mono text-xs text-pencil mt-1">Dept. of CSE-AI</p>
+    <p className="font-mono text-xs text-secondary mt-2">Sector 22, Rohini, Delhi — 110086</p>
+    <p className="font-mono text-xs text-secondary mt-1">Dept. of CSE-AI</p>
   </Card>
 );
 
@@ -79,7 +79,7 @@ export const FooterArt = () => {
   );
 
   return (
-    <section ref={root} className="relative bg-paper pt-10 pb-12 px-5 sm:px-8 border-t-[3px] border-ink [clip-path:inset(0_0_-100vh_0)]">
+    <section ref={root} className="relative bg-bg-surface pt-10 pb-12 px-5 sm:px-8 border-t-[3px] border-border [clip-path:inset(0_0_-100vh_0)]">
       {/* clip-path (not overflow) hides the card above the tear line but lets it swing below */}
       <div className="perforation absolute left-0 right-0 top-0" aria-hidden="true" />
       <div className="relative z-[2] max-w-7xl mx-auto lg:pr-[360px]">
@@ -91,7 +91,7 @@ export const FooterArt = () => {
 
         <div className="reveal mt-12" style={{ '--reveal-i': 1 }}>
           <p className="font-mono text-xs tracking-[0.18em] uppercase text-pencil mb-3">activity by type</p>
-          <div className="lang-bar flex h-3 w-full overflow-hidden border-2 border-ink bg-cream">
+          <div className="lang-bar flex h-3 w-full overflow-hidden border-2 border-border bg-bg-surface">
             {LANGS.map((l) => (
               <span key={l.type} className="lang-seg h-full" style={{ width: `${l.pct}%`, background: l.color }} />
             ))}
@@ -99,9 +99,9 @@ export const FooterArt = () => {
           <ul className="mt-3 flex flex-wrap gap-x-6 gap-y-2 font-mono text-sm">
             {LANGS.map((l) => (
               <li key={l.type} className="flex items-center gap-2">
-                <span className="w-3 h-3 rounded-full border border-ink" style={{ background: l.color }} />
+                <span className="w-3 h-3 rounded-full border-border" style={{ background: l.color }} />
                 <span className="capitalize">{l.type}</span>
-                <span className="text-pencil">{l.pct.toFixed(1)}%</span>
+                <span className="text-fg-secondary">{l.pct.toFixed(1)}%</span>
               </li>
             ))}
           </ul>

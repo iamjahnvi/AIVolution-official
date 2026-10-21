@@ -624,7 +624,7 @@ export const TeeFloatingWidget = () => {
       >
         {/* Playful hint, gone after the first spin */}
         <span
-          className={`font-hand text-sm sm:text-base leading-none text-ink bg-cream/90 border border-ink/15 rounded-full px-2 py-0.5 -rotate-6 transition-opacity duration-300 ${
+          className={`font-hand text-sm sm:text-base leading-none text-fg-primary bg-bg-surface/90 border border-border/15 rounded-full px-2 py-0.5 -rotate-6 transition-opacity duration-300 ${
             hintDismissed ? 'opacity-0' : 'opacity-100'
           }`}
           aria-hidden="true"
@@ -649,7 +649,7 @@ export const TeeFloatingWidget = () => {
 
           {/* Fallback if WebGL fails */}
           {hasError && (
-            <div className="absolute inset-1 bg-screen rounded-xl border-2 border-ink flex flex-col items-center justify-center text-center">
+            <div className="absolute inset-1 bg-bg-surface rounded-xl border-2 border-border flex flex-col items-center justify-center text-center">
               <img src="/merch/front-chest-logo.png" alt="Front print" className="w-10 h-auto" />
               <p className="font-mono text-[9px] text-white/60 mt-1">3D unavailable</p>
             </div>
@@ -660,7 +660,7 @@ export const TeeFloatingWidget = () => {
           type="button"
           onClick={openStudio}
           className={`btn-sticker -mt-1 whitespace-nowrap ${isExpanded ? '' : 'pointer-events-auto'}`}
-          style={{ '--bg': 'var(--mint)', '--r': '-3deg', padding: '0.38rem 0.75rem', fontSize: '0.8rem', borderWidth: '2px', boxShadow: '3px 3px 0 var(--ink)' }}
+          style={{ '--bg': 'var(--mint)', '--r': '-3deg', padding: '0.38rem 0.75rem', fontSize: '0.8rem', borderWidth: '2px', boxShadow: '3px 3px 0 var(--border)' }}
         >
           check our merch <span aria-hidden="true">↗</span>
         </button>
@@ -673,12 +673,12 @@ export const TeeFloatingWidget = () => {
             role="dialog"
             aria-modal="true"
             aria-label="AIvolutions merch studio"
-            className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-6 bg-ink/70 backdrop-blur-sm"
+            className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-6 bg-bg-surface/70 backdrop-blur-sm"
             onClick={(e) => {
               if (e.target === e.currentTarget) closeStudio();
             }}
           >
-            <div className="relative w-full max-w-4xl max-h-[94vh] overflow-y-auto bg-cream text-ink border-[2.5px] border-ink rounded-2xl shadow-[8px_8px_0_var(--ink)] flex flex-col">
+            <div className="relative w-full max-w-4xl max-h-[94vh] overflow-y-auto bg-bg-surface text-fg-primary border-[2.5px] border-border rounded-2xl shadow-[8px_8px_0_var(--border)] flex flex-col">
               {/* Header */}
               <div className="flex items-start justify-between gap-4 px-5 pt-5 pb-2 sm:px-8 sm:pt-7">
                 <div>

@@ -13,7 +13,7 @@ const Ticket = ({ e, i, active, onPick }) => {
       type="button"
       onClick={(ev) => onPick(e, ev.currentTarget)}
       aria-pressed={active}
-      className={`ticket group relative shrink-0 flex text-left border-2 border-ink shadow-[5px_5px_0_var(--ink)] transition-transform duration-200 hover:-translate-y-1.5 focus-visible:-translate-y-1.5 ${active ? 'bg-ink text-paper' : 'bg-cream text-ink'}`}
+      className={`ticket group relative shrink-0 flex text-left border-2 border-border shadow-[5px_5px_0_var(--border)] transition-transform duration-200 hover:-translate-y-1.5 focus-visible:-translate-y-1.5 ${active ? 'bg-border text-fg-primary' : 'bg-bg-surface text-fg-secondary'}`}
       style={{ '--tone': color, transform: `rotate(${i % 2 ? 1.2 : -1.2}deg)` }}
     >
       {/* date block */}
@@ -104,10 +104,10 @@ export const TicketShelf = ({ activeId, onSelect }) => {
   return (
     <div className="relative -mx-5 sm:-mx-8 md:-mx-12">
       <div className="flex items-center justify-between gap-4 px-5 sm:px-8 md:px-12 mb-2">
-        <Hand className="text-lg text-pencil" rotate={-2}>scroll the shelf sideways →</Hand>
+        <Hand className="text-lg text-secondary" rotate={-2}>scroll the shelf sideways →</Hand>
         <div className="flex gap-2">
-          <button type="button" onClick={() => by(-1)} disabled={edges.start} className="btn-sticker !py-1.5 !px-3.5 text-sm disabled:opacity-30" style={{ '--bg': '#fff' }} aria-label="Scroll tickets left">←</button>
-          <button type="button" onClick={() => by(1)} disabled={edges.end} className="btn-sticker !py-1.5 !px-3.5 text-sm disabled:opacity-30" style={{ '--bg': '#fff' }} aria-label="Scroll tickets right">→</button>
+          <button type="button" onClick={() => by(-1)} disabled={edges.start} className="btn-sticker !py-1.5 !px-3.5 text-sm disabled:opacity-30" style={{ '--bg': 'var(--bg-surface)' }} aria-label="Scroll tickets left">←</button>
+          <button type="button" onClick={() => by(1)} disabled={edges.end} className="btn-sticker !py-1.5 !px-3.5 text-sm disabled:opacity-30" style={{ '--bg': 'var(--bg-surface)' }} aria-label="Scroll tickets right">→</button>
         </div>
       </div>
       <div
@@ -121,8 +121,8 @@ export const TicketShelf = ({ activeId, onSelect }) => {
         {EVENTS_DESC.map((e, i) => <Ticket key={e.id} e={e} i={i} active={e.id === activeId} onPick={pick} />)}
       </div>
       {/* shelf position */}
-      <div className="mx-5 sm:mx-8 md:mx-12 h-1.5 bg-ink/10" aria-hidden="true">
-        <div className="h-full bg-marker transition-[width] duration-150" style={{ width: `${Math.max(8, progress * 100)}%` }} />
+      <div className="mx-5 sm:mx-8 md:mx-12 h-1.5 bg-border/10" aria-hidden="true">
+        <div className="h-full bg-accent transition-[width] duration-150" style={{ width: `${Math.max(8, progress * 100)}%` }} />
       </div>
     </div>
   );

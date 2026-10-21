@@ -18,7 +18,7 @@ const scatter = (i) => {
 const Frame = ({ f, i }) => (
   <li className="frame relative shrink-0 w-[190px] md:w-[220px]">
     <a href={f.linkedin} target="_blank" rel="noreferrer" className="block group" aria-label={`${f.name} on LinkedIn`}>
-      <div className="relative aspect-[3/4] overflow-hidden bg-[#222] border-[3px] border-[#111] transition-colors duration-300 group-hover:border-highlight">
+      <div className="relative aspect-[3/4] overflow-hidden bg-[#222] border-[3px] border-border transition-colors duration-300 group-hover:border-accent">
         <img src={f.imgUrl} alt={f.name} loading="lazy" decoding="async" draggable={false} className={`w-full h-full object-cover ${f.imgPosition || 'object-top'} transition-transform duration-500 group-hover:scale-[1.06]`} />
         {i === 0 && <Stamp rotate={-8} color="var(--highlight)" className="absolute top-3 left-3 !opacity-100 bg-ink/60 text-[0.6rem]">{f.role}</Stamp>}
         <span className="absolute top-2 right-2 font-mono text-[9px] text-paper/70">{String(i + 1).padStart(2, '0')}A</span>
@@ -29,10 +29,10 @@ const Frame = ({ f, i }) => (
           </Tape>
         </div>
       </div>
-      <figcaption className="mt-2 px-1 text-paper">
-        <p className="font-hand text-xl leading-none truncate"><span className="mark" style={{ "--mark": "var(--marker)" }}>{f.name}</span></p>
-        <p className="font-mono text-[0.6rem] tracking-[0.18em] uppercase text-paper/60 mt-1 truncate">{f.role}</p>
-      </figcaption>
+<figcaption className="mt-2 px-1 text-fg-primary">
+  <p className="font-hand text-xl leading-none truncate"><span className="mark" style={{ "--mark": "var(--marker)" }}>{f.name}</span></p>
+  <p className="font-mono text-[0.6rem] tracking-[0.18em] uppercase text-fg-secondary/60 mt-1 truncate">{f.role}</p>
+</figcaption>
     </a>
   </li>
 );
@@ -106,7 +106,7 @@ export const Contributors = () => {
   );
 
   return (
-    <section id="contributors" ref={root} className="cell relative bg-cream paper-ruled">
+    <section id="contributors" ref={root} className="cell relative bg-bg-surface paper-ruled">
       <div className="max-w-7xl mx-auto px-5 sm:px-8 md:px-12 pt-20 md:pt-28">
         <div className="reveal flex flex-wrap items-end justify-between gap-6">
           <div>
@@ -149,12 +149,12 @@ export const Contributors = () => {
           </div>
           <ul className="mt-4 flex flex-wrap gap-x-5 gap-y-2 font-mono text-xs">
             {TEAM_DEPARTMENTS.map((d) => (
-              <li key={d.key} className="flex items-center gap-2"><span className="w-3 h-3 rounded-full border-2 border-ink" style={{ background: DEPT_TONE[d.key] }} />{d.label}</li>
+              <li key={d.key} className="flex items-center gap-2"><span className="w-3 h-3 rounded-full border-2 border-border" style={{ background: DEPT_TONE[d.key] }} />{d.label}</li>
             ))}
             <li className="flex items-center gap-2"><span className="text-marker text-xl leading-none">★</span>heads</li>
           </ul>
           <div ref={pile} className="relative mt-5 h-[520px] sm:h-[600px] border-2 border-dashed border-ink/30 overflow-hidden dotgrid">
-            <Hand className="absolute right-5 bottom-4 text-xl text-pencil hidden lg:block" rotate={-3}>grab one. throw it. no rules ↗</Hand>
+            <Hand className="absolute right-5 bottom-4 text-xl text-secondary hidden lg:block" rotate={-3}>grab one. throw it. no rules ↗</Hand>
             {TEAM.map((m, i) => {
               const s = scatter(i);
               const tone = DEPT_TONE[m.dept];

@@ -66,49 +66,54 @@ export const Hero = () => {
     return () => el.removeEventListener('pointermove', move);
   }, []);
 
-  return (
+return (
     <section id="home" ref={root} className="relative min-h-[100svh] overflow-hidden dotgrid flex items-center">
       <div className="inkgrid absolute inset-0 pointer-events-none" aria-hidden="true" />
 
       <div className="relative z-[3] w-full max-w-[1500px] mx-auto px-5 sm:px-8 md:px-12 pt-28 pb-24 md:pt-32 grid gap-12 lg:gap-10 lg:grid-cols-[1fr_auto] lg:items-center">
         <div className="max-w-[660px]">
           <div className="hero-fade flex flex-wrap items-center gap-3 mb-6">
-            <SectionLabel bare><span className="text-pen font-bold">⎇ main</span> · public</SectionLabel>
+            <SectionLabel bare><span className="text-accent font-bold">⎇ main</span> · public</SectionLabel>
             <Tape rotate={-2} stripe>official AI society · dept. of CSE-AI, MAIT</Tape>
           </div>
 
-          <h1 className="text-[clamp(2.9rem,6.4vw,6.6rem)]">
+          <h1 className="text-[clamp(2.9rem,6.4vw,6.6rm)]">
             <span className="mask-line"><span>we turn AI</span></span>
-            <span className="mask-line"><span><span className="strike font-hand font-medium tracking-normal text-pencil">users</span> into</span></span>
+            <span className="mask-line"><span><span className="strike font-hand font-medium tracking-normal text-secondary">users</span> into</span></span>
             <span className="mask-line"><span><Mark><span className="cursor-default" onMouseEnter={toCreators}>AI creators.</span></Mark></span></span>
           </h1>
 
-          <p className="hero-fade mt-7 max-w-xl text-lg md:text-xl leading-relaxed text-pencil">
+          <p className="hero-fade mt-7 max-w-xl text-lg md:text-xl leading-relaxed text-secondary">
             A student-led ecosystem at Maharaja Agrasen Institute of Technology for those who refuse to
             simply watch the future unfold — hands-on learning, industry collaboration, competitive
             challenges, and experiential projects.
           </p>
 
           <div className="hero-fade mt-8 flex flex-wrap items-center gap-4">
-            <StickerButton href={WHATSAPP} target="_blank" rel="noreferrer" bg="var(--highlight)" rotate={-1.5} onMouseEnter={firePass}>
+            <StickerButton href={WHATSAPP} target="_blank" rel="noreferrer" bg="var(--accent)" rotate={-1.5} onMouseEnter={firePass}>
               Join AIvolutions <span aria-hidden="true">→</span>
             </StickerButton>
-            <StickerButton to="/events" bg="#fff" rotate={1} onMouseEnter={firePass}>See our events</StickerButton>
+            <StickerButton to="/events" bg="#141414" rotate={1} onMouseEnter={firePass}>See our events</StickerButton>
           </div>
 
           <div className="hero-fade mt-10 flex flex-wrap items-center gap-4">
             <SectionLabel bare>latest commit</SectionLabel>
             <Link
               to={`/events?e=${featured.id}`}
-              className="group inline-flex items-center gap-4 border-2 border-ink bg-cream pl-2 pr-4 py-2 shadow-[4px_4px_0_var(--ink)] transition-transform duration-200 hover:-translate-y-0.5"
+              className="group inline-flex items-center gap-4 border-2 border-border bg-bg-surface pl-2 pr-4 py-2 shadow-[4px_4px_0_var(--border)] transition-transform duration-200 hover:-translate-y-0.5"
             >
-              <img src={featured.imgUrl} alt="" width="56" height="56" className="w-14 h-14 object-cover border border-ink" />
+              <img src={featured.imgUrl} alt="" width="56" height="56" className="w-14 h-14 object-cover border-border" />
               <span>
                 <span className="block font-bricolage font-extrabold text-lg leading-tight">{featured.title}</span>
-                <span className="block font-mono text-xs text-pencil"><span className="text-marker">{shortHash(featured.id)}</span> · {featured.date} · {featured.facts.slice(0, 2).join(' · ')}</span>
+                <span className="block font-mono text-xs text-secondary"><span className="text-accent">{shortHash(featured.id)}</span> · {featured.date} · {featured.facts.slice(0, 2).join(' · ')}</span>
               </span>
               <span className="font-bricolage font-extrabold text-xl transition-transform group-hover:translate-x-1" aria-hidden="true">→</span>
             </Link>
+          </div>
+
+          {/* from 1392px the wider right margin leaves room for the corner merch tee */}
+          <div className="hero-fade relative mx-auto w-full max-w-[520px] lg:w-[min(42vw,520px)] lg:max-w-none lg:mr-6 xl:mr-10 min-[1392px]:mr-[9.5rem]">
+            <HeroNetwork ref={net} introDelay={introDelay} />
           </div>
         </div>
 
@@ -124,7 +129,7 @@ export const Hero = () => {
         </Sticker>
       ))}
 
-      <p className="scroll-cue absolute bottom-8 left-1/2 -translate-x-1/2 z-[3] font-mono text-[0.68rem] tracking-[0.18em] uppercase text-pencil whitespace-nowrap">
+      <p className="scroll-cue absolute bottom-8 left-1/2 -translate-x-1/2 z-[3] font-mono text-[0.68rem] tracking-[0.18em] uppercase text-secondary whitespace-nowrap">
         ↓ README.md
       </p>
       <Perforation />
