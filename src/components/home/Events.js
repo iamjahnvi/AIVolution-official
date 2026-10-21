@@ -45,7 +45,7 @@ const Heatmap = () => (
         Array.from({ length: WEEKS }, (_, w) => {
           const idx = w * 7 + day;
           const hit = counts.has(idx);
-          return <span key={`${w}-${day}`} className={`heat-cell w-[11px] h-[11px] rounded-[2px] ${hit ? 'bg-marker' : 'bg-ink/10'}`} style={{ gridColumn: w + 1, gridRow: day + 2 }} />;
+          return <span key={`${w}-${day}`} className={`heat-cell w-[11px] h-[11px] rounded-[2px] ${hit ? 'bg-primary' : 'bg-bg-surface/10'}`} style={{ gridColumn: w + 1, gridRow: day + 2 }} />;
         })
       )}
     </div>

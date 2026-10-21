@@ -572,7 +572,7 @@ export const CutoutEventsGallery = () => {
                 >
                   <path
                     d="M2 3 C10 4, 18 8, 24 16 M24 16 L18 16 M24 16 L22 10"
-                    stroke="#FFF"
+                    stroke="#a0a0a0"
                     strokeWidth="1.8"
                     strokeLinecap="round"
                     strokeLinejoin="round"

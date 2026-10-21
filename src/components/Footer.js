@@ -10,7 +10,7 @@ const PaperFooter = () => {
   const year = new Date().getFullYear();
   const { pathname } = useLocation();
   return (
-    <footer className="nb relative bg-paper text-ink overflow-hidden">
+    <footer className="nb relative bg-bg-surface text-fg-primary overflow-hidden">
       {/* tear line, repo stats, cards and the ID card; remounts per route so the card drops on every page */}
       <FooterArt key={pathname} />
       <div className="max-w-7xl mx-auto px-5 sm:px-8 md:px-12 pt-2 pb-10">

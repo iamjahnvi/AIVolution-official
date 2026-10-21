@@ -63,8 +63,8 @@
 }
 
 .desk-link:hover {
-  background: #FFFCF4;
-  box-shadow: 3px 8px 0 rgba(20, 16, 10, 0.34);
+  background: var(--cut-sheet);
+  box-shadow: 3px 8px 0 var(--cut-mat-grid-bold);
   transform: rotate(var(--rot, -1.4deg)) translateY(-1px);
 }
 
@@ -135,9 +135,13 @@
   line-height: 1;
   letter-spacing: -0.01em;
   text-transform: uppercase;
-  white-space: nowrap;
-  box-shadow: 2px 5px 0 rgba(20, 16, 10, 0.32);
+  box-shadow: 2px 5px 0 var(--cut-mat-grid-bold);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cut-strip:hover .cut-strip-badge {
+  transform: translateY(-2px);
+  box-shadow: 4px 10px 0 var(--cut-mat-grid-bold);
 }
 
 .cut-strip:hover .cut-strip-badge {
@@ -179,7 +183,7 @@
 .cut-heading-badge {
   display: inline-block;
   background: #191715;
-  color: #FFF3E4;
+  color: var(--accent);
   padding: 10px 22px 9px;
   border-radius: 2px;
   font-family: 'Archivo Black', Impact, sans-serif;
@@ -188,14 +192,14 @@
   line-height: 1;
   letter-spacing: -0.02em;
   text-transform: uppercase;
-  box-shadow: 3px 7px 0 rgba(20, 16, 10, 0.4);
+  box-shadow: 3px 7px 0 var(--cut-mat-grid-bold);
   transform: rotate(-2.5deg);
 }
 
 .cut-subheading-badge {
   display: inline-block;
-  background: #EFB61F;
-  color: #241C10;
+  background: #2d4a2e;
+  color: var(--accent);
   padding: 8px 18px 7px;
   border-radius: 2px;
   font-family: 'Archivo Black', Impact, sans-serif;
@@ -203,7 +207,8 @@
   font-size: clamp(26px, 3.4vw, 52px);
   line-height: 1;
   letter-spacing: -0.01em;
-  box-shadow: 2px 6px 0 rgba(20, 16, 10, 0.35);
+  text-transform: uppercase;
+  box-shadow: 2px 6px 0 var(--cut-mat-grid-bold);
   transform: rotate(3deg);
   margin-top: 10px;
   margin-left: 20px;
@@ -219,7 +224,7 @@
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: rgba(244, 249, 236, 0.85);
+  color: var(--fg-secondary);
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
 }
 
@@ -242,7 +247,7 @@
 }
 
 .cut-skip:hover {
-  color: #FFFFFF;
+  color: var(--fg-primary);
 }
 
 /* Stencil Letters Cutting Stage */
@@ -270,7 +275,7 @@
   font-size: clamp(48px, 9.5vw, 150px);
   line-height: 1;
   text-transform: uppercase;
-  color: #FFF3E4;
+  color: var(--fg-secondary);
   text-shadow: 0 18px 36px rgba(0, 0, 0, 0.65), 0 2px 4px rgba(0, 0, 0, 0.4);
   background-clip: text;
   -webkit-background-clip: text;
@@ -406,8 +411,8 @@
 
 .cut-hero-frame {
   position: relative;
-  background: #141210;
-  border: 10px solid #FFFFFF;
+  background: var(--cut-sheet);
+  border: 10px solid var(--border);
   box-shadow: 0 16px 32px -10px rgba(0, 0, 0, 0.35);
   border-radius: 2px;
   overflow: hidden;
@@ -489,8 +494,8 @@
 }
 
 .cut-cta-button:hover {
-  background: #FFFCF4;
-  box-shadow: 3px 8px 0 rgba(20, 16, 10, 0.34);
+  background: var(--cut-sheet);
+  box-shadow: 3px 8px 0 var(--cut-mat-grid-bold);
   transform: rotate(-1.1deg) translateY(-1px);
 }
 
@@ -564,8 +569,8 @@
 }
 
 .cut-deck-card.is-active {
-  background: #FFFFFF;
-  border-color: #DE3B22;
+  background: var(--cut-sheet);
+  border-color: var(--accent);
   box-shadow: 3px 12px 24px -4px rgba(222, 59, 34, 0.28);
   transform: translateY(-3px) rotate(-0.5deg);
 }
@@ -592,14 +597,14 @@
   top: 5px;
   right: 5px;
   background: rgba(20, 16, 12, 0.85);
-  color: #FFF3E4;
+  color: var(--fg-secondary);
   font-family: 'JetBrains Mono', monospace;
   font-size: 9px;
   font-weight: 700;
   letter-spacing: 0.08em;
+  text-transform: uppercase;
+  min-width: 18px;
   padding: 2px 6px;
-  border-radius: 2px;
-  backdrop-filter: blur(2px);
 }
 
 .cut-deck-card-title {
@@ -696,13 +701,13 @@
   border-radius: 2px;
   padding: 8px 16px 7px;
   background: #191715;
-  color: #FFF3E4;
+  color: var(--fg-secondary);
   font-family: 'JetBrains Mono', monospace;
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  box-shadow: 2px 4px 0 rgba(20, 16, 10, 0.3);
+  box-shadow: 2px 4px 0 var(--cut-mat-grid-bold);
   cursor: pointer;
   transition: transform 0.16s ease, background 0.16s ease;
   white-space: nowrap;
@@ -727,8 +732,8 @@
   width: 100%;
   aspect-ratio: 1.6;
   max-height: 480px;
-  background: #141210;
-  border: 8px solid #FFFFFF;
+  background: var(--cut-sheet);
+  border: 8px solid var(--border);
   box-shadow: 0 14px 28px -8px rgba(20, 16, 10, 0.35);
   border-radius: 2px;
   overflow: hidden;
@@ -751,7 +756,7 @@
   border-radius: 2px;
   padding: 8px 12px;
   background: rgba(25, 20, 14, 0.78);
-  color: #FFF;
+  color: var(--fg-primary);
   font-family: 'JetBrains Mono', monospace;
   font-size: 11px;
   font-weight: 700;
@@ -796,8 +801,8 @@
   position: relative;
   flex: 0 0 85px;
   aspect-ratio: 1.35;
-  background: #141210;
-  border: 3px solid #FFF;
+  background: var(--cut-sheet);
+  border: 3px solid var(--border);
   box-shadow: 1px 3px 6px rgba(20, 16, 10, 0.25);
   border-radius: 2px;
   cursor: pointer;
@@ -885,8 +890,8 @@
 }
 
 .cut-back-button:hover {
-  background: rgba(14, 26, 20, 0.9);
-  color: #FFFFFF;
+  background: rgba(14, 26, 20, 0.95);
+  color: var(--fg-primary);
   transform: translateY(-1px);
 }
 

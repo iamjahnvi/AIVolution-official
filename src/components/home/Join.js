@@ -115,7 +115,7 @@ export const Join = () => {
 
           {/* steps along a branch line */}
           <div className="steps relative pl-10 sm:pl-12">
-            <div className="step-line absolute left-3 sm:left-4 top-4 bottom-4 w-1 bg-ink" aria-hidden="true" />
+            <div className="step-line absolute left-3 sm:left-4 top-4 bottom-4 w-1 bg-bg-surface" aria-hidden="true" />
             <ol className="space-y-6">
               {STEPS.map((s, i) => (
                 <li key={s.n} className="relative">
@@ -131,7 +131,7 @@ export const Join = () => {
                     {s.to
                       ? <StickerButton to={s.to} bg={s.bg} rotate={i % 2 ? -1.5 : 1.5} className="shrink-0 !py-3 !px-5 text-base">{s.cta}</StickerButton>
                       : <StickerButton href={s.href} target="_blank" rel="noreferrer" bg={s.bg} rotate={i % 2 ? -1.5 : 1.5} className="shrink-0 !py-3 !px-5 text-base">{s.cta}</StickerButton>}
-                    <Stamp rotate={-10} color="var(--mint)" className="absolute -top-4 right-4 text-[0.6rem] bg-cream opacity-0 scale-150 transition-all duration-300 group-hover:!opacity-90 group-hover:scale-100">merged ✓</Stamp>
+                    <Stamp rotate={-10} color="var(--mint)" className="absolute -top-4 right-4 text-[0.6rem] bg-bg-surface opacity-0 scale-150 transition-all duration-300 group-hover:!opacity-90 group-hover:scale-100">merged ✓</Stamp>
                   </div>
                 </li>
               ))}

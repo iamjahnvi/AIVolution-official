@@ -20,7 +20,7 @@ const Frame = ({ f, i }) => (
     <a href={f.linkedin} target="_blank" rel="noreferrer" className="block group" aria-label={`${f.name} on LinkedIn`}>
       <div className="relative aspect-[3/4] overflow-hidden bg-[#222] border-[3px] border-border transition-colors duration-300 group-hover:border-accent">
         <img src={f.imgUrl} alt={f.name} loading="lazy" decoding="async" draggable={false} className={`w-full h-full object-cover ${f.imgPosition || 'object-top'} transition-transform duration-500 group-hover:scale-[1.06]`} />
-        {i === 0 && <Stamp rotate={-8} color="var(--highlight)" className="absolute top-3 left-3 !opacity-100 bg-ink/60 text-[0.6rem]">{f.role}</Stamp>}
+        {i === 0 && <Stamp rotate={-8} color="var(--highlight)" className="absolute top-3 left-3 !opacity-100 bg-bg-surface/60 text-[0.6rem]">{f.role}</Stamp>}
         <span className="absolute top-2 right-2 font-mono text-[9px] text-paper/70">{String(i + 1).padStart(2, '0')}A</span>
         {/* hover: tape slides up over the photo */}
         <div className="frame-tag absolute left-2 right-2 bottom-3 translate-y-3 opacity-0 transition-all duration-300">

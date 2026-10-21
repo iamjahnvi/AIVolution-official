@@ -61,16 +61,16 @@ export const MemberCard = ({ m, big = false }) => {
       >
         {/* front */}
         <div className="tcard-face absolute inset-0 overflow-hidden border-[3px] border-border bg-bg-surface shadow-[6px_6px_0_var(--border)]">
-          <div className="h-3 border-b-[3px] border-ink" style={{ background: tone }} />
+          <div className="h-3 border-b-[3px] border-border" style={{ background: tone }} />
           <div className="relative h-[calc(100%-0.75rem)] overflow-hidden">
             <img src={m.img} alt={m.name} loading="lazy" decoding="async" className="tcard-img w-full h-full object-cover object-top scale-[1.12]" />
             <div className="holo absolute inset-0 pointer-events-none" aria-hidden="true" />
             <div className="glare absolute inset-0 pointer-events-none" aria-hidden="true" />
-            <span className="absolute top-2 left-2 font-mono text-[0.6rem] font-bold px-1.5 py-0.5 border-2 border-ink text-ink" style={{ background: tone }}>{m.deptLabel}</span>
-            {isLead(m) && <span className="absolute top-2 right-2 w-7 h-7 rounded-full border-2 border-ink bg-marker text-paper text-sm flex items-center justify-center">★</span>}
+            <span className="absolute top-2 left-2 font-mono text-[0.6rem] font-bold px-1.5 py-0.5 border-2 border-border text-secondary" style={{ background: tone }}>{m.deptLabel}</span>
+            {isLead(m) && <span className="absolute top-2 right-2 w-7 h-7 rounded-full border-2 border-border bg-bg-surface text-fg-primary text-sm flex items-center justify-center">★</span>}
             {/* frosted nameplate */}
             <div className="nameplate absolute inset-x-0 bottom-0 px-4 py-3 border-t-2 border-ink/60">
-              <Hand className={`block leading-none text-ink ${big ? 'text-3xl' : 'text-2xl'}`}>{m.name}</Hand>
+              <Hand className={`block leading-none text-fg-primary ${big ? 'text-3xl' : 'text-2xl'}`}>{m.name}</Hand>
               <p className="font-mono text-[0.66rem] tracking-[0.16em] uppercase text-ink/80 mt-1">{m.role}</p>
             </div>
           </div>
@@ -79,15 +79,15 @@ export const MemberCard = ({ m, big = false }) => {
         {/* back */}
         <div className="tcard-face tcard-back absolute inset-0 overflow-hidden border-[3px] border-ink shadow-[6px_6px_0_var(--ink)] flex flex-col justify-between p-5" style={{ background: tone }}>
           <div className="flex items-start justify-between">
-            <span className="font-mono text-[0.62rem] font-bold tracking-widest uppercase border-2 border-ink bg-cream px-2 py-0.5">{m.deptLabel}</span>
+            <span className="font-mono text-[0.62rem] font-bold tracking-widest uppercase border-2 border-border bg-bg-surface px-2 py-0.5">{m.deptLabel}</span>
             {isLead(m) && <span className="text-marker text-xl">★</span>}
           </div>
           <span className="font-bricolage font-extrabold leading-none text-[clamp(4rem,9vw,7rem)] text-ink/90 select-none" aria-hidden="true">{initials(m.name)}</span>
           <div>
-            <Hand className="block text-3xl leading-none text-ink">{m.name}</Hand>
+            <Hand className="block text-3xl leading-none text-fg-primary">{m.name}</Hand>
             <p className="font-bricolage font-extrabold text-lg mt-1">{m.role}</p>
-            <p className="font-mono text-[0.62rem] text-ink/70 mt-2">⎇ departments/{m.dept}/</p>
-            <p className="font-mono text-[0.58rem] text-ink/50 mt-3">click to flip back</p>
+            <p className="font-mono text-[0.62rem] text-fg-secondary/70 mt-2">⎇ departments/{m.dept}/</p>
+            <p className="font-mono text-[0.58rem] text-fg-secondary/50 mt-3">click to flip back</p>
           </div>
         </div>
       </div>
